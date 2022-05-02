@@ -1,0 +1,223 @@
+<head>
+    <meta charset="UTF-8"  name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <link rel="stylesheet" type="text/css" src="./style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">    
+</head>
+
+<style>
+  body {
+    background-color: #e4f9fac0;
+  }
+  .navbar-brand {
+    margin-left: 25px !important;
+  }
+
+  .btn:focus{
+    box-shadow: none !important;
+  }
+  .input-text:focus {
+    box-shadow: none !important;
+  }
+
+  a{
+    text-decoration: none;
+  }
+
+  .btn:focus{
+    box-shadow: none !important;
+  }
+
+  .input-text:focus {
+    box-shadow: none !important;
+  }
+
+  a{
+    text-decoration: none;
+  }
+
+  #changeable {
+    margin-top: 100px;
+  }
+
+  .grid-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 300px);
+    justify-content: center;
+    row-gap: 50px;
+    column-gap: 50px;
+    padding: 10px;
+    margin: 50px;
+    border-radius: 5px;
+  }
+
+  .card {
+    border: 1px solid #000;
+    border-radius: 5px;
+    width: 300px;
+    height: 300px;
+  }
+
+  .profile-details {
+    max-width : 1500px;
+    margin-top: 100px;
+  }
+
+  textarea {
+    resize: vertical;
+    overflow: hidden;
+  }
+
+  .recipebtn {
+    background-color: white;
+    border: none;
+  }
+
+  .recipebtn:focus {
+    box-shadow: none !important;
+  }
+
+  .recipeSpan {
+    display: inline-block;
+    border: solid 1px black;
+    border-radius: 5px;
+    padding: 10px;
+    width: 1000px
+  }
+
+  .recipeDiv {
+    display: inline-block;
+    border: solid 1px #000;
+    background-color: white;
+  }
+
+@media (max-width: 1000px) {
+  .grid-container {
+    grid-template-columns: 300px;
+  }
+
+  .recipeSpan {
+    width: 300px;
+  }
+}
+</style>
+
+<body>
+    <nav class="navbar navbar-fixed-top navbar-expand-lg navbar-dark bg-dark b-5">
+      <a class="navbar-brand" href="#"><h2>Recipe Book</h2></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item active">
+                <button type="button" class="btn btn-dark" id="home">Home</button>
+            </li>
+            <li class="nav-item">
+              <button type="button" class="btn btn-dark" id="profile">Profile</button>
+            </li>
+            <li class="nav-item">
+              <button type="button" class="btn btn-dark" id="logout">Logout</button>
+            </li>
+          </ul>
+        </div>
+    </nav>
+
+    <!-- <div class="container-md mx-auto mt-5">
+        <div class="row align-items-center justify-content-md-center">
+            <div>
+                <div class="container-md input-group mb-3"> 
+                    <input type="text" id="search" class="form-control input-text" placeholder="Search for recipe or ingredient here ...." aria-label="Recipient's username" aria-describedby="basic-addon2">
+                    <button class="btn btn-primary" id="searchButton" type="button">Search</button>
+                </div>
+                <div id="searchMessage"></div>
+            </div>
+        </div>
+      </div>  -->
+
+    <!-- <div id="bgImg" class="d-flex justify-content-center container-fluid  align-items-center h-100">
+      <div class="row align-items-center">
+          <div>
+              <div class="container input-group"> 
+                  <input type="text" id="search" class="form-control input-text" placeholder="Search for recipe or ingredient here ...." aria-label="Recipient's username" aria-describedby="basic-addon2">
+            <button class="btn btn-primary" id="searchButton" type="button">Search</button>
+              </div>
+              <div id="searchMessage"></div>
+          </div>
+      </div>
+    </div> -->
+
+    <div class="container" id="changeable">
+      <div class="container-md mx-auto mt-5">
+        <div class="row align-items-center justify-content-md-center">
+            <div>
+                <div class="container-md input-group mb-3"> 
+                    <input type="text" id="search" class="form-control input-text" placeholder="Search for recipe or ingredient here ...." aria-label="Recipient's username" aria-describedby="basic-addon2">
+                    <button class="btn btn-primary" id="searchButton" type="button">Search</button>
+                </div>
+                <div id="searchMessage"></div>
+            </div>
+        </div>
+      </div> 
+    
+      <div class="container mx-auto">
+        <div id = "searchResult" class="grid-container mx-auto">
+          <!-- <div class="grid-item">
+            <a href="#">
+              <div class="card">
+                <img class="card-img-top" src="..." alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Recipe</h5>
+                </div>
+              </div>
+            </a>
+          </div> -->
+        </div>
+      </div>  
+    </div>
+
+    <div class="modal fade" role="dialog" id="addModal">
+      <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h4 class="modal-title"></h4>
+                  <button type="button" class="btn  btn-danger btn-close" data-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <div>
+                      <p>Add the details of recipe here</p>
+                      <div class="form-outline mb-4">
+                        Name
+                        <input type="text" class="form-control" id="recipeName"/>
+                      </div>
+                      <div class="form-outline mb-4">
+                        Description
+                        <div class="recipeDiv form-control" contenteditable="true" id="description"></div>
+                      </div>
+                      <div class="form-outline mb-4 grow-wrap">
+                        Ingredients
+                        <div class="recipeDiv form-control" contenteditable="true" id="ingredients"></div>
+                      </div>
+                      <div class="form-outline mb-4">
+                        Instructions
+                        <div class="recipeDiv form-control" contenteditable="true" id="instructions"></div>
+                      </div>
+                      <div class="form-outline mb-4">
+                        Nutritional Facts
+                        <div class="recipeDiv form-control" contenteditable="true" id="nutritionalFacts"></div>
+                      </div>
+                      <p class="text-center"></p>
+                      <div class="text-center">
+                          <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit" id="addRecipe">Add</button><br>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="./script.js"></script>
+
+</body>
