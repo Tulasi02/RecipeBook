@@ -2,11 +2,13 @@ var token = localStorage.getItem('token');
 
 var ID, rName, desc, ing, inst, facts;
 
+const apiUrl = window.location.origin+"/";
+
 $(document).ready(() => {
     $("#signUp").click(() => {
         // console.log("signup");
         $.ajax({
-            url: "http://localhost:3000/user/signup",
+            url: apiUrl+"user/signup",
             type: "PUT",
             cors: true,
             dataType: "json",
@@ -28,7 +30,7 @@ $(document).ready(() => {
 
     $("#login").click(() => {
         $.ajax({
-            url: "http://localhost:3000/user/login",
+            url: apiUrl+"user/login",
             type: "POST",
             cors: true,
             dataType: "json",
@@ -62,7 +64,7 @@ $(document).ready(() => {
 
     $("#profile").click(() => {
         $.ajax({
-            url: "http://localhost:3000/user/profile",
+            url: apiUrl+"user/profile",
             type: "GET",
             cors: true,
             headers: {'token' : token},
@@ -143,7 +145,7 @@ $(document).ready(() => {
         var password1 = $("#newPassword").val(), password2 = $("#confirmPassword").val();
         if (password1 != '' && password2 != '') {
             $.ajax({
-                url: "http://localhost:3000/user/update",
+                url: apiUrl+"user/update",
                 type: "PATCH",
                 cors: true,
                 headers: {'token': token},
@@ -180,7 +182,7 @@ $(document).ready(() => {
         inst = $("#instructions").html();
         facts = $("#nutritionalFacts").html();
         $.ajax({
-            url: "http://localhost:3000/recipes/addRecipe",
+            url: apiUrl+"recipes/addRecipe",
             type: "PUT",
             cors: true,
             dataType: "json",
@@ -214,7 +216,7 @@ $(document).ready(() => {
         // console.log(f);
         if (f !== '') {
             $.ajax({
-                url: "http://localhost:3000/recipes/searchRecipe",
+                url: apiUrl+"recipes/searchRecipe",
                 type: "POST",
                 cors: true,
                 dataType: "json",
@@ -262,7 +264,7 @@ $(document).ready(() => {
     $("#changeable").on('click', '.recipebtn', (e) => {
         var recipeId = $(e.target).closest('.recipebtn').attr('data-value');
         $.ajax({
-            url: "http://localhost:3000/recipes/viewRecipe",
+            url: apiUrl+"recipes/viewRecipe",
             type: "POST",
             cors: true,
             dataType: "json",
@@ -332,7 +334,7 @@ $(document).ready(() => {
     $("#changeable").on('click', '#recipeUpdate', () => {
         var ID = $("#idRecipe").val(), desc = $("#description").html(), ing = $("#ingredients").html(), inst = $("#instructions").html(), facts = $("#facts").html();
         $.ajax({
-            url: "http://localhost:3000/recipes/editRecipe",
+            url: apiUrl+"recipes/editRecipe",
             type: "PATCH",
             cors: true,
             headers: {'token': token},
