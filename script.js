@@ -5,7 +5,7 @@ var ID, rName, desc, ing, inst, facts;
 const apiUrl = window.location.origin+"/";
 
 $(document).ready(() => {
-    $("#signUp").click(() => {
+    $("#signUp").click(() => {  
         // console.log("signup");
         $.ajax({
             url: apiUrl+"user/signup",
